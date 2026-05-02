@@ -104,7 +104,14 @@ Then we can add out components, including out network behaviour like so:
 var networkBehaviour = networkedObjectPrefab.AddComponent<MyNetworkBehaviour>();
 ```
 
-To be able to register the prefab and spawn it, it needs an assetID. This has to be set using reflection:
+To be able to register the prefab and spawn it, it needs an assetID. Using the `WobblyLife.GameLibs` NuGet package you can do it like this as the assemblies are publicized:
+
+```c#
+const string guid = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee";
+networkBehaviour.assetID = guid;
+```
+
+But if you imported them manually you may need to use reflection:
 
 ```c#
 const string guid = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee";
